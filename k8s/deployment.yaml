@@ -2,22 +2,22 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: spring-mvc-demo
-  name: spring-mvc-demo
+    app: demo-dev
+  name: demo-dev
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: spring-mvc-demo
+      app: demo-dev
   template:
     metadata:
       labels:
         app: spring-mvc-demo
     spec:
       containers:
-        - image: image-registry.openshift-image-registry.svc:5000/workspace-auth-demo/spring-mvc-demo:latest
+        - image: image-registry.openshift-image-registry.svc:5000/common-cicd/spring-mvc-demo:latest
           imagePullPolicy: Always
-          name: vote-api
+          name: demo-dev
           ports:
             - containerPort: 8080
               protocol: TCP
