@@ -2,13 +2,13 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: demo-dev
-  name: demo-dev
+    app: spring-mvc-demo
+  name: spring-mvc-demo
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: demo-dev
+      app: spring-mvc-demo
   template:
     metadata:
       labels:
@@ -17,7 +17,7 @@ spec:
       containers:
         - image: image-registry.openshift-image-registry.svc:5000/common-cicd/spring-mvc-demo:latest
           imagePullPolicy: Always
-          name: demo-dev
+          name: spring-mvc-demo
           ports:
             - containerPort: 8080
               protocol: TCP
